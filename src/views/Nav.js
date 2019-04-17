@@ -11,6 +11,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   Container,
+  Button,
   DropdownItem } from 'reactstrap';
 
 export default class Navigation extends React.Component {
@@ -32,31 +33,48 @@ export default class Navigation extends React.Component {
       <div>
         <Navbar className="ncst_nav" light expand="md">
           <Container>
-            <NavbarBrand href="/">reactstrap</NavbarBrand>
+            <NavbarBrand href="/">
+              <img src={require(`../assets/images/logo.png`)}></img>
+            </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <NavLink href="/components/">Components</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                </NavItem>
                 <UncontrolledDropdown nav inNavbar className="cst_drpbtn">
-                  <DropdownToggle nav caret>
-                    Options
+                  <DropdownToggle nav caret className="cst-cart">
+                    <img src={require(`../assets/images/cart_icon.png`)}></img>
+                    <span>
+                      3
+                    </span>
                   </DropdownToggle>
                   <DropdownMenu right className="cst_dropdown">
-                    <DropdownItem>
-                      Option 1
-                    </DropdownItem>
-                    <DropdownItem>
-                      Option 2
+                    <DropdownItem header className="cst-dropdown-header">
+                      <span className="cart-header">
+                        2 items in cart
+                      </span>
+                      <span className="cart-action">
+                        <span className="cart-price">
+                          9.99$
+                        </span>
+                        <Button className="cst-clear-cart">
+                          Clear Cart
+                        </Button>
+                      </span>
+
                     </DropdownItem>
                     <DropdownItem divider />
-                    <DropdownItem>
-                      Reset
+                    <DropdownItem header className="cart-product-item">
+                      <span className="cart-title-items">
+                        <img src={require(`../assets/images/product_img/assasin.png`)}></img>
+                        <span className="cart-title-name">
+                          <span className="cart-title-item">Lorem ipsum</span>
+                          <a>Remove</a>
+                        </span>
+                      </span>
+                      <span className="cart-price-item">
+                        9.99$
+                      </span>
                     </DropdownItem>
+                    <DropdownItem divider />
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>
