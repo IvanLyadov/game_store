@@ -8,6 +8,10 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
+      cart: [],
+      addProductToCart: this.addProductToCart,
+      clearCart: this.clearCart,
+      clearCartItemById: this.clearCartItemById,
     };
   }
 
@@ -15,6 +19,32 @@ class App extends Component {
     this.setState({
       data: Api
     })
+ }
+
+ addProductToCart = (id) => {
+   let new_cart = this.state.cart;
+   new_cart.push(id);
+   this.setState({
+     cart: new_cart,
+   })
+ }
+
+ clearCart = () => {
+   this.setState({
+     cart: []
+   });
+ }
+
+ clearCartItemById = (id) => {
+   let cart = this.state.cart;
+    let index = cart.indexOf(id);
+    if (index > -1) {
+      cart.splice(index, 1);
+    }
+
+    this.setState({
+      cart: cart
+    });
  }
 
   render() {
