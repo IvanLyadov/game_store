@@ -17,7 +17,7 @@ class ProductList extends React.Component {
           {
             data.map((obj, ix) => {
               return (
-                <Col key={ix}>
+                <div key={ix} className="cst-product-column col-1-5 cst-col-sm-6">
                   <Card className="cst-cart-product">
                     <CardImg top width="100%" src={require(`../assets/images/product_img/${obj.img}`)} alt="Card image cap" />
                     <CardTitle className={`${obj.purchase_status ? "cst-cart-title-purchased" : "cst-cart-title"}`}>
@@ -37,7 +37,7 @@ class ProductList extends React.Component {
                             <>
                               {
                                 obj.discount ? (
-                                  <Button className="cst-btn-sicount">
+                                  <Button className="cst-btn-sicount" disabled>
                                       {
                                         obj.discount
                                       }
@@ -56,7 +56,7 @@ class ProductList extends React.Component {
                       </div>
                     </CardBody>
                   </Card>
-                </Col>
+                </div>
               )
             })
           }

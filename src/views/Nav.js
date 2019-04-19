@@ -59,8 +59,6 @@ export default class Navigation extends React.Component {
             <NavbarBrand href="/">
               <img src={require(`../assets/images/logo.png`)} alt="Logo"></img>
             </NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <UncontrolledDropdown nav inNavbar className="cst_drpbtn">
                   <DropdownToggle nav caret className="cst-cart">
@@ -106,7 +104,6 @@ export default class Navigation extends React.Component {
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>
-            </Collapse>
           </Container>
         </Navbar>
       </div>
